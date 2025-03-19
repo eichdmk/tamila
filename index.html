@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>тамила</title>
+
+    <style>
+        body {
+            background-color: #ffccff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            animation: backgroundAnimation 10s infinite alternate;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background-color: #ffccff; }
+            100% { background-color: #ff99cc; }
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            width: 90vw; 
+            height: 90vw; 
+            max-width: 500px; 
+            max-height: 500px;
+            border: 5px dashed #ff6699;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .yes, .no {
+            color: white;
+            margin: 10px;
+            padding: 10px 20px; 
+            text-align: center;
+            height: 50px;
+            width: 80px; 
+            font-size: 16px; 
+            border-radius: 10px;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            cursor: pointer;
+        }
+
+        .yes {
+            background-color: #28a745;
+        }
+
+        .no {
+            background-color: #dc3545;
+        }
+
+        .yes:active, .no:active {
+            transform: scale(1.1);
+        }
+
+        .mucaev {
+            color: #ff6699;
+            font-size: 30px; 
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            text-align: center; 
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="mucaev">
+        тамила прости меня
+    </div>
+    <main>
+        <div class="yes" onclick="yes()">
+            Yes!
+        </div>
+        <div class="no" onclick="no()">
+            No!
+        </div>
+    </main>
+    <script>
+        let main = document.querySelector("main");
+        let _yes = document.querySelector(".yes");
+        let _no = document.querySelector(".no");
+        let _mucaev = document.querySelector(".mucaev");
+        let a = 0;
+
+        function no() {
+            if (a == 0) {
+                _no.style.position = "absolute";
+                _no.style.top = "200px";
+                _yes.style.padding = "15px 30px"; 
+            } else if (a == 1) {
+                _no.style.left = "100px";
+                _yes.style.padding = "20px 40px"; 
+                _yes.innerHTML = "Yeees!";
+            } else if (a == 2) {
+                _no.style.left = "250px";
+                _yes.innerHTML = "YES!";
+            } else if (a == 3) {
+                _no.style.display = "none";
+                _yes.style.width = "100%"; 
+                _yes.style.height = "100%"; 
+                _yes.style.fontSize = "50px"; 
+                _yes.innerHTML = "YEЕS!!!";
+            }
+            a++;
+        }
+
+        function yes() {
+            _mucaev.style.textAlign = "center";
+            _mucaev.style.fontSize = "50px"; 
+            _mucaev.style.color = "#007bff";
+            _no.style.display = "none";
+            _yes.style.display = "none";
+            _mucaev.innerHTML = "я не сомневался!";
+
+            let img = document.createElement("img");
+            img.setAttribute("src", "image.png");
+            main.appendChild(img);
+        }
+    </script>
+</body>
+</html>
